@@ -1,5 +1,13 @@
-document.getElementsById('button').addEventListener('click', function(){
-    var element = document.getElementsByName('body');
-    element.style.backgroundColor = '#333';
-    element.style.color = '#f4f4f4';
+document.addEventListener('DOMContentLoaded', () => {
+    const myButton = document.getElementById('myButton');
+    myButton.addEventListener('click', () => {
+        var element = document.querySelector('section');
+        if (element) {
+            element.style.color = '#f4f4f4';
+            element.style.backgroundColor = '#333';
+            console.log("completed");
+        } else {
+        console.log("No elements found with the name 'header'.");
+        }
+    })
 });
