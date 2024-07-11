@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const myButton = document.getElementById('myButton');
 
+    let darkTheme = false;
+
     if (!myButton) {
         console.error("Button with ID 'myButton' not found");
         return;
@@ -25,8 +27,42 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.backgroundColor = '#333';
         });
 
+        myButton.innerHTML = "Light Mode";
+        darkTheme = true;
         console.log("Dark mode applied");
     }
 
-    myButton.addEventListener('click', darkMode);
+    function lightMode() {
+        // Select multiple elements by their IDs
+        const elements = document.querySelectorAll('#introduction, #about, #projects, #service, #contact');
+
+        // Check if elements are found
+        if (elements.length === 0) {
+            console.error("No elements found with specified IDs");
+            return;
+        }
+
+        // Loop through each element and apply styles
+        elements.forEach(element => {
+            element.style.color = '#333';
+            element.style.backgroundColor = '#f4f4f4';
+        });
+
+        myButton.innerHTML = "Dark Mode";
+        darkTheme = false;
+        console.log("Light mode applied");
+    }
+
+    function modeSwitch() {
+        if (darkTheme === false) {
+            darkMode();
+        }
+        else if (darkTheme === true) {
+            lightMode();
+        }
+        else console.log('Error!!!');
+
+    }
+
+    myButton.addEventListener('click', modeSwitch);   
 });
