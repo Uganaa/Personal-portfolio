@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function darkMode() {
         // Select multiple elements by their IDs
-        const elements = document.querySelectorAll('#introduction, #about, #projects, #services, #contact');
+        const elements = document.querySelectorAll('#introduction, #about, #projects, #service, #contact');
 
         // Check if elements are found
         if (elements.length === 0) {
